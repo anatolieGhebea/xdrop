@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xDrop cliennt</title>
+</head>
+<body>
+    
+    <h1>
+        Hello there, xdrop server is up and running!
+    </h1>
+
+    <form action="api/upload_file" enctype="multipart/form-data" method="POST" id="file_uploader">
+        <input type="file" name="file" id="file">
+        <button type="submit">send</button>
+    </form>
+
+    <script defer>
+        (function(){
+            let form = document.getElementById('file_uploader');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                console.log('prevented and elaborating');
+
+                let action = form.action;
+                let fileInput = document.getElementById('file')
+                console.log(fileInput);
+
+                let formData = new FormData();
+                
+                formData.append("selectedFile", fileInput.files[0]);
+
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", action);
+                xhr.send(formData);
+            })
+
+        })()
+
+    </script>
+</body>
+</html>

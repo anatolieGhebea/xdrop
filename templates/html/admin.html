@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xDrop</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <meta name="ServerIp" content="{{.LocalIp}}">
+    <meta name="ServerPort" content="{{.Port}}">
+</head>
+<body>
+    
+    <h1>
+        Hello there, xdrop server is up and running!
+    </h1>
+    <div>
+        <a href="stop_server" style="color: red" >stop server</a>
+        <br/>
+        <br/>
+    </div>
+
+    <div>
+        server settings:
+        <ul>
+            <li>upload directory {{.UploadDir}}</li>
+            <li>download directory {{.DownloadDir}}</li>
+            <li>server address {{.LocalIp}}{{.Port}}</li>
+        </ul>
+    </div>
+    <div>
+        <div class="qrcode_wrapper">
+            <div id="qrcode"></div>
+        </div>
+    </div>
+
+    <script src="static/util/qrcode.min.js"></script>
+    <script src="static/admin/app.js"></script>
+</body>
+</html>
