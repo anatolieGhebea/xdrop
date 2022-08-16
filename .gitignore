@@ -1,3 +1,5 @@
 node_modules
 go.sum
 package-lock.json
+xdrop
+.DS_*
